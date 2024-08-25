@@ -4,6 +4,10 @@ let computerScore = 0;
 const humanScoreText = document.querySelector("#human-score");
 const computerScoreText = document.querySelector("#computer-score");
 
+const humanChoiceText = document.querySelector(".human-choice");
+const computerChoiceText = document.querySelector(".computer-choice");
+const roundResultText = document.querySelector(".round-result");
+
 function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
   const random = Math.floor(Math.random() * choices.length);
@@ -11,10 +15,6 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  const humanChoiceText = document.querySelector(".human-choice");
-  const computerChoiceText = document.querySelector(".computer-choice");
-  const roundResultText = document.querySelector(".round-result");
-
   humanChoiceText.textContent = `Human chose ${humanChoice}`;
   computerChoiceText.textContent = `Computer chose ${computerChoice}`;
   if (
@@ -44,6 +44,7 @@ function playGame() {
       playRound(humanChoice, computerChoice);
 
       if (humanScore === 5 || computerScore === 5) {
+        roundResultText.textContent = "";
         gameWinner();
         choices.forEach((button) => (button.disabled = true));
       }
