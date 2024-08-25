@@ -52,12 +52,13 @@ function playGame() {
 }
 
 function gameWinner() {
+  const gameResultText = document.querySelector(".game-result");
   if (humanScore > computerScore) {
-    console.log("Congratulations! You won the game!");
+    gameResultText.textContent = "Congratulations! You won the game!";
   } else if (computerScore > humanScore) {
-    console.log("Sorry, you lost the game.");
+    gameResultText.textContent = "Sorry, you lost this game.";
   } else {
-    console.log("It's a tie game!");
+    gameResultText.textContent = "It's a tie game!";
   }
 }
 
