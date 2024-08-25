@@ -1,15 +1,13 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const humanScoreText = document.querySelector(".human-score");
+const computerScoreText = document.querySelector(".computer-score");
+
 function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
   const random = Math.floor(Math.random() * choices.length);
   return choices[random].toUpperCase();
-}
-
-function getHumanChoice() {
-  let choice = prompt("Rock, Paper, Scissors? Make your choice.");
-  return choice.toUpperCase();
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -29,20 +27,20 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-  for (let round = 1; round <= 5; round++) {
-    console.log(`Round ${round}:`);
+  const choices = document.querySelectorAll(".choices");
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    console.log(`Your choice: ${humanSelection}`);
-    console.log(`Computer's choice: ${computerSelection}`);
+  choices.forEach((choice) => {
+    choice.addEventListener("click", () => {
+      const humanChoice = choice.id.toUpperCase();
+      const computerChoice = getComputerChoice();
+      playRound(humanChoice, computerChoice);
 
-    playRound(humanSelection, computerSelection);
-    console.log(`Score: You ${humanScore} - Computer ${computerScore}`);
-    console.log("------------------------");
-  }
-
-  gameWinner();
+      if (humanScore === 5 || computerScore === 5) {
+        gameWinner();
+        choices.forEach((button) => (button.disabled = true));
+      }
+    });
+  });
 }
 
 function gameWinner() {
@@ -55,4 +53,4 @@ function gameWinner() {
   }
 }
 
-// playGame();
+playGame();
