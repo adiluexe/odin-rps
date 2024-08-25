@@ -1,8 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
 
-const humanScoreText = document.querySelector(".human-score");
-const computerScoreText = document.querySelector(".computer-score");
+const humanScoreText = document.querySelector("#human-score");
+const computerScoreText = document.querySelector("#computer-score");
 
 function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
@@ -11,18 +11,26 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+  const humanChoiceText = document.querySelector(".human-choice");
+  const computerChoiceText = document.querySelector(".computer-choice");
+  const roundResultText = document.querySelector(".round-result");
+
+  humanChoiceText.textContent = `Human chose ${humanChoice}`;
+  computerChoiceText.textContent = `Computer chose ${computerChoice}`;
   if (
     (humanChoice === "ROCK" && computerChoice === "SCISSORS") ||
     (humanChoice === "PAPER" && computerChoice === "ROCK") ||
     (humanChoice === "SCISSORS" && computerChoice === "PAPER")
   ) {
     humanScore++;
-    console.log(`You win this round! ${humanChoice} beats ${computerChoice}`);
+    humanScoreText.textContent = humanScore;
+    roundResultText.textContent = `${humanChoice} beats ${computerChoice}. You win this round!`;
   } else if (humanChoice === computerChoice) {
-    console.log(`It's a tie! You both chose ${humanChoice}`);
+    roundResultText.textContent = `It's a tie! You both chose ${humanChoice}.`;
   } else {
     computerScore++;
-    console.log(`You lose this round. ${computerChoice} beats ${humanChoice}`);
+    computerScoreText.textContent = computerScore;
+    roundResultText.textContent = `${computerChoice} beats ${humanChoice}. You lose this round.`;
   }
 }
 
