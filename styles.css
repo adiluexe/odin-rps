@@ -109,3 +109,21 @@ header {
   color: var(--highlight);
   text-transform: uppercase;
 }
+
+.results-container {
+  padding: 3rem;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--highlight);
+  text-transform: uppercase;
+}
+
+.choice-results {
+  font-size: 1.25rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
