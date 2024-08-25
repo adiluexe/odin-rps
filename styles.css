@@ -49,3 +49,63 @@ h6 {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
+/* MAIN */
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  min-height: 100vh;
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 2rem;
+  font-family: "Roboto Flex", sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.choices-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.choices {
+  vertical-align: center;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 1.25rem;
+  min-width: 250px;
+  min-height: 250px;
+  font-size: 7.5rem;
+  padding: 1rem;
+  transition: 0.5s ease;
+}
+
+.choices:hover {
+  cursor: pointer;
+  background-color: var(--highlight);
+  font-size: 10rem;
+  min-width: 275px;
+  min-height: 275px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--highlight);
+  text-transform: uppercase;
+}
