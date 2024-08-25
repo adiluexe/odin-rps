@@ -70,6 +70,14 @@ header {
   font-size: 2rem;
   font-weight: 900;
   color: var(--accent);
+  transition: 0.5s ease;
+}
+
+header:hover {
+  cursor: crosshair;
+  font-size: 2.1rem;
+  letter-spacing: 0.25rem;
+  color: var(--highlight);
 }
 
 main {
@@ -78,7 +86,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: 0.5s ease;ss
+  transform: 0.5s ease;
 }
 
 .choices-container {
@@ -172,4 +180,12 @@ footer {
   font-weight: 900;
   background-color: var(--accent);
   color: var(--dark);
+  transition: 0.5s ease;
+}
+
+footer:hover {
+  background-color: var(--highlight);
+  color: var(--light);
+  letter-spacing: 0.1rem;
+  font-size: 1.1rem;
 }
