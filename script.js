@@ -8,6 +8,9 @@ const humanChoiceText = document.querySelector(".human-choice");
 const computerChoiceText = document.querySelector(".computer-choice");
 const roundResultText = document.querySelector(".round-result");
 
+const choices = document.querySelectorAll(".choices");
+const resetButton = document.querySelector("#reset");
+
 function getComputerChoice() {
   const choices = ["Rock", "Paper", "Scissors"];
   const random = Math.floor(Math.random() * choices.length);
@@ -34,9 +37,24 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  const choices = document.querySelectorAll(".choices");
+function resetGame() {
+  humanScore = 0;
+  computerScore = 0;
 
+  humanScoreText.textContent = humanScore;
+  computerScoreText.textContent = computerScore;
+
+  document.querySelector(".human-choice").textContent = "";
+  document.querySelector(".computer-choice").textContent = "";
+  document.querySelector(".round-result").textContent = "";
+  document.querySelector(".game-result").textContent = "";
+
+  choices.forEach((button) => (button.disabled = false));
+
+  resetButton.style.display = "none";
+}
+
+function playGame() {
   choices.forEach((choice) => {
     choice.addEventListener("click", () => {
       const humanChoice = choice.id.toUpperCase();
@@ -50,6 +68,7 @@ function playGame() {
       }
     });
   });
+  resetButton.addEventListener("click", resetGame);
 }
 
 function gameWinner() {
@@ -61,6 +80,8 @@ function gameWinner() {
   } else {
     gameResultText.textContent = "It's a tie game!";
   }
+
+  resetButton.style.display = "block";
 }
 
 playGame();
